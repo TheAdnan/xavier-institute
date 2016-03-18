@@ -89,6 +89,8 @@ body{
 
 #vijestiLeft ul li p, #vijestiRight ul li p{
 	font-family: Signika;
+	text-align: justify;
+	padding-right: 12px;
 }
 
 #vijestiLeft ul, #vijestiRight ul{
