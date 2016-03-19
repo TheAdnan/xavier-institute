@@ -168,13 +168,13 @@ h2{
 }
 
 #linkovi ul li{
-	list-style-type:none;
+	list-style-image:url('../images/ikonica.png');
 	margin-left: 20px;
 	border-bottom: 1px solid black;
 }
 
 #linkovi ul li:hover{
-	list-style-image:url('../images/ikonica.png');
+	list-style-image:url('../images/ikonica-hover.png');
 	margin-left: 20px;
 }
 
