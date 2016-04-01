@@ -106,6 +106,10 @@ body{
 	background-color:#CFE1E1
 }
 
+#vijestiLeft img, #vijestiRight img{
+	height:168px;
+	width:250px;
+}
 
 .objavljeno{
 	

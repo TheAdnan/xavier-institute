@@ -80,7 +80,7 @@ onload = function Datum(){
 						else if(parseInt(razlika/24)==1) document.getElementsByClassName(klasa)[i].innerHTML = DatumOutput(parseInt(razlika/24), Dani[0]);
 						else if(parseInt(razlika/24)<7)document.getElementsByClassName(klasa)[i].innerHTML = DatumOutput(parseInt(razlika/24), Dani[1]);
 						else if(parseInt(razlika/24)>7 && parseInt(razlika/24)<4*7)document.getElementsByClassName(klasa)[i].innerHTML = DatumOutput(parseInt((razlika/24)/7), Sedmica[0]);
-						else document.getElementsByClassName("objavljeno")[i].innerHTML = DatumOutputFull(datoom.getDate(), datoom.getMonth()+1, datoom.getFullYear());
+						else document.getElementsByClassName(klasa)[i].innerHTML = DatumOutputFull(datoom.getDate(), datoom.getMonth()+1, datoom.getFullYear());
 					}
 			}
 		}
@@ -89,10 +89,10 @@ onload = function Datum(){
 }
 
 function DatumOutput(broj, str){
-	return " " + broj + " " + str;
+	return " prije " + broj + " " + str;
 }
 	
 	
 function DatumOutputFull(dan, mjesec, godina){
-	return "Objavljeno " + dan + "-" + mjesec + "-" + godina + " g.<time></time>";
+	return " " + dan + "-" + mjesec + "-" + godina + " g";
 }
