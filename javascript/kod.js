@@ -1,11 +1,18 @@
 onload = function Datum(){
 	var klasa = "vrijemeObjave";
+<<<<<<< HEAD
+=======
 	var X = ["par sekundi", "Minuta", "Sat", "Dan", "Sedmica"];
+>>>>>>> origin/master
 	var Dani = ["dan", "dana"];
 	var Minuta = ["minute", "minuta"];
 	var Sati = ["sat", "sata", "sati"];
 	var Sedmica = ["sedmice", "sedmica"];
+<<<<<<< HEAD
+	//trenutno vrijeme
+=======
 
+>>>>>>> origin/master
 	var trenutnoVrijeme = new Date();
 	var dan = trenutnoVrijeme.getDate();
 	var mjesec = trenutnoVrijeme.getMonth() + 1; 
@@ -17,6 +24,19 @@ onload = function Datum(){
 	
 	var ispis = document.getElementsByClassName(klasa);
 	for(var i=0; i<ispis.length; i++){
+<<<<<<< HEAD
+		var s = ispis[i].getAttribute("datetime"); //prima datum kao string
+		var datoom = new Date(s); //pretvara datum iz stringa u Date tip
+				
+		if(godina == datoom.getFullYear()){ //ista godina
+			if(mjesec == (datoom.getMonth()+1)){ //isti mjesec
+				if(dan == datoom.getDate()) //isti dan
+				{
+					if(sat == datoom.getHours()){ // isti sat
+					if(min == datoom.getMinutes()) //ista minuta
+					{
+						document.getElementsByClassName(klasa)[i].innerHTML = " prije par sekundi";
+=======
 		var s = ispis[i].getAttribute("datetime");
 		var datoom = new Date(s);
 		// document.getElementsByClassName(klasa)[i].innerHTML = DatumOutput(2, Dan[1]);
@@ -29,11 +49,16 @@ onload = function Datum(){
 					if(min == datoom.getMinutes())
 					{
 						document.getElementsByClassName(klasa)[i].innerHTML = " par sekundi";
+>>>>>>> origin/master
 					}
 					else if(min > datoom.getMinutes() && (min - datoom.getMinutes())<5 ) document.getElementsByClassName(klasa)[i].innerHTML = DatumOutput((min - datoom.getMinutes()), Minuta[0]);
 					else if(min > datoom.getMinutes()) document.getElementsByClassName(klasa)[i].innerHTML = DatumOutput((min - datoom.getMinutes()), Minuta[1]);
 					}
+<<<<<<< HEAD
+					else{ //nije ista minuta
+=======
 					else{
+>>>>>>> origin/master
 						var SatX = min + sat*60;
 						var SatY = datoom.getMinutes() + datoom.getHours()*60;
 						var razlika = SatX - SatY;
@@ -88,11 +113,19 @@ onload = function Datum(){
 	}
 }
 
+<<<<<<< HEAD
+function DatumOutput(broj, str){ //ispis prije+nesto
+=======
 function DatumOutput(broj, str){
+>>>>>>> origin/master
 	return " prije " + broj + " " + str;
 }
 	
 	
+<<<<<<< HEAD
+function DatumOutputFull(dan, mjesec, godina){ //ispis cijelog datuma
+=======
 function DatumOutputFull(dan, mjesec, godina){
+>>>>>>> origin/master
 	return " " + dan + "-" + mjesec + "-" + godina + " g";
 }
