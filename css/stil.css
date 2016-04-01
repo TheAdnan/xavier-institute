@@ -107,6 +107,18 @@ body{
 }
 
 
+.objavljeno{
+	
+	font-size: 9px;
+	color: gray;
+	
+}
+
+.objavljeno p{
+	text-align:right;
+	font-family:Ubuntu;
+}
+
 .tijelo{
 	clear:both;
 }
@@ -237,4 +249,20 @@ h2{
 
 
 
+#vmutacije{
+	font-size: 10px;
+	color: #171717;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:-40px;
+}
 
+#vmutacije td{
+	padding-left:20px
+}
+
+#gradSelect, #drzavaSelect{
+	background-color:#486868;
+	font-family:Ubuntu;
+	width:70%;
+}
