@@ -70,7 +70,7 @@ function ValidirajOnInput2(ajdi){
 function ValidirajOnInput3(ajdi){
 	var elemenat = document.getElementById(ajdi);
 	var podatak = document.getElementById(ajdi).value;
-	var reg = /(.*)\s(.*)/igm;
+	var reg = /([a-z]*)\s([a-z]*)/igm;
 	if(!(reg.test(podatak))){
 		elemenat.style.backgroundColor = "tomato";
 	}
