@@ -80,6 +80,7 @@ onload = function Datum(){
 					}
 			}
 		}
+		else document.getElementsByClassName(klasa)[i].innerHTML = DatumOutputFull(datoom.getDate(), datoom.getMonth()+1, datoom.getFullYear());
 		
 	}
 }

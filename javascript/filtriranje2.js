@@ -28,7 +28,7 @@ function feelter(vr){
 		for (var i = 0; i < listaVijesti.length; i++) {
 			var datumV = listaVijesti[i].getAttribute("datetime");
 			var datum = new Date(datumV);
-			if(sad.getMonth()==datum.getMonth() && sad.getFullYear()==datum.getFullYear() && (sad.getDate()-datum.getDate())<8)
+			if(sad.getMonth()==datum.getMonth() && sad.getFullYear()==datum.getFullYear() && (sad.getDate()-datum.getDate())<sad.getDay())
 				listaV[i+5].style.removeProperty('display');
 			else {
 				listaV[i+5].style.display = "none";
