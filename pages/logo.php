@@ -1,0 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+	<head>
+		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>logo</title>
+		<link rel="stylesheet" type="text/css" href="logo.css">
+	</head>
+	
+</HTML>
