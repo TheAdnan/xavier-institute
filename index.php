@@ -29,7 +29,35 @@
 			</div>
 			
 			</div>
-		
+			
+			<?php
+			session_start();
+			if(isset($_POST['logout'])){
+				unset($_SESSION['login']);
+				session_destroy();
+				echo '<script>alert("Niste vise logovani!");</script>';
+			}
+				if(!isset($_SESSION['login']))
+				print "<div><form id='login-forma' action='pages/admin.php' method='POST'>
+					<fieldset>
+					
+					<label for='username' >Korisničko ime:</label>
+					<input type='text' name='username' id='username'  maxlength='20' />
+					 
+					<label for='password' >Lozinka:</label>
+					<input type='password' name='password' id='password' maxlength='20' />
+					 
+					<input type='submit' name='posalji' value='Log in' />
+					
+					</fieldset>
+			</form></div>";
+			if(isset($_SESSION['login'])){
+				print "<div><form id='logout-forma' action='../index.php' method='POST'><input type='submit' name='logout' value='Log out' /></form></div>";
+			
+			}
+			?>
+			
+			
 		<div class="meni"> 
 			
 				<ul>
@@ -38,6 +66,11 @@
 					<li><a href="pages/linkovi.php">Korisni linkovi</a></li>
 					<li><a href="pages/o-nama.php">O nama</a></li>
 					<li><a href="pages/kontakt.php">Kontakt</a></li>
+					<?php
+					if(isset($_SESSION['login'])){
+					print "<li><a href='pages/admin.php'>Admin Panel</a></li>";
+					}
+					?>
 				</ul>
 	
 			</div>
@@ -68,7 +101,7 @@
 					<ul>
 						<li>
 							<h3>Prijemni ispit na Xavier's School for Gifted Youngsters</h3>
-							<p class="objavljeno">Objavljeno<time class="vrijemeObjave" datetime="2016-03-24T01:44:00"></time>.</p>
+							<p class="objavljeno">Objavljeno<time class="vrijemeObjave" datetime="2016-05-17T11:44:00"></time>.</p>
 							<img src="images/vijest3.jpg" alt="Deadpool and Negasonic">
 							<p>Na osnovu člana 125. Zakona o visokom obrazovanju ("Službene novine Kantona Sarajevo", br. 42/13 - prečišćeni tekst i 13/15), člana 95. Statuta Xavier Instituta u New Yorku i tačke III Odluke Vlade o davanju...</p>
 						</li>

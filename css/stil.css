@@ -174,6 +174,60 @@ h2{
 	font-family:Signika;
 }
 
+#login-forma{
+	font-family: Signika;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 34px;
+	border-radius: 15%;
+	border: 1px solid black;
+	width: 236px;
+	position: relative;
+	box-shadow: 0px 2px 5px black;
+	padding-bottom: 2px;
+	float: right;
+	margin-top:-95px;
+}
+
+#login-forma fieldset{
+	border:0;
+}
+
+#login-forma input{
+	height: 25px;
+	width: 130px;
+	text-align: center;
+	border-radius: 20%;
+	float: right;
+}
+
+#logout-forma{
+	font-family: Signika;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 34px;
+	border-radius: 15%;
+	border: 1px solid black;
+	width: 136px;
+	position: relative;
+	box-shadow: 0px 2px 5px black;
+	padding-bottom: 2px;
+	float: right;
+	margin-top:-95px;
+}
+
+#logout-forma fieldset{
+	border:0;
+}
+#logout-forma input{
+	height: 25px;
+	width: 130px;
+	text-align: center;
+	border-radius: 20%;
+	float: right;
+}
 
 /*Korisni linkovi*/
 
@@ -269,4 +323,60 @@ h2{
 	background-color:#486868;
 	font-family:Ubuntu;
 	width:70%;
+}
+
+
+#loginDiv{
+	width: 20%;
+float: right;
+margin-top: -135px;
+}
+
+#login{
+	color: white;
+text-align: center;
+}
+
+#dodaj-novost{
+	font-family: Signika;
+	font-size: 24px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+    border-radius:15%;
+    border: 1px solid black;
+    background-color: #486a95;
+    width: 500px;
+    position:relative;
+    left:35%;
+    box-shadow: 0px 2px 5px black;
+    padding-bottom: 5px;
+}
+
+#dodaj-novost fieldset{
+	border:0;
+}
+#tekstvijesti{
+
+    height: 300px;
+    width: 300px;
+
+}
+
+#dodajVijestBtn {
+	font-family:Signika;
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  color: #000;
+  font-size: 18px;
+  background: #a7d4f2;
+  padding: 10px 20px 10px 20px;
+  border: solid #3a7da6 2px;
+  text-decoration: none;
+}
+
+#dodajVijestBtn:hover {
+  background: #c1e2f5;
+  text-decoration: none;
 }
