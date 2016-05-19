@@ -267,7 +267,7 @@ h2{
 	float: right;
 }
 
-#sortiraj input{
+.sortiraj input{
 	height: 25px;
 	width: 130px;
 	text-align: center;
@@ -275,7 +275,7 @@ h2{
 	float: right;
 }
 
-#sortiraj{
+.sortiraj{
 	    font-family: Signika;
     font-size: 14px;
     text-align: center;
@@ -288,6 +288,7 @@ h2{
     box-shadow: 0px 2px 5px black;
     float: right;
     right: 45px;
+	margin-left:10px;
 }
 
 /*Korisni linkovi*/

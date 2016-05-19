@@ -8,6 +8,7 @@
 	<script src="../javascript/kod.js"></script>
 	<script src="../javascript/filtriranje.js"></script>
 	<script src="../javascript/sortirajalfabetikalno.js"></script>
+	<script src="../javascript/sortirajdatumicno.js"></script>
 </head>
 
 <!--[if lt IE 9]>
@@ -87,7 +88,8 @@
 			<option value="sve" id="sve" selected="selected">Sve novosti</option>
 		</select> 
 		
-		<input type='submit' name='sortiraj' id='sortiraj' onclick='sortuj();' value='Sortiraj po abecedi' />
+		<input type='submit' name='sortiraj' class='sortiraj' onclick='sortuj();' value='Sortiraj po abecedi' />
+		<input type='submit' name='sortirajDate' class='sortiraj' onclick='sortujPoDatumu();' value='Sortiraj po datumu' />
 				<br>
 				<br>
 				<br>
