@@ -77,7 +77,7 @@
 					 else{
 						 $greska="Niste popunili sva polja!";
 					}
-				
+					
 						
 					// print "<h3>".$naslov."</h3><p class='objavljeno'>objavljeno<time class='vrijemeObjave' datetime='".$datum1."T".$datum2."'></time>.</p><p>".$tekst."</p>";
 					}

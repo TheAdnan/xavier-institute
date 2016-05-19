@@ -57,6 +57,7 @@
 				print "<div><form id='logout-forma' action='admin.php' method='POST'><input type='submit' name='logout' value='Log out' /></form></div>";
 			
 			}
+			
 			?>
 			
 		<div class="meni"> 
@@ -165,6 +166,17 @@
 							<img src="../images/x-men-poster-2.jpg" alt="Charles Xavier">
 							<p>Charles Francis Xavier rođen je u New Yorku, oca Brian Xavier i majke, cijenjene naučnice u oblasti nuklearne fizike, Sharon Xavier. Nakon što je izgubio oca u saobraćajnoj nesreći, njegov prijatelj Kurt Marko stupa u brak s Sharon...</p>
 						</div>
+						<?php
+						$file_handle = fopen("../files/novosti.csv", "r");
+
+						while (!feof($file_handle) ) {
+
+						$cv = fgetcsv($file_handle, 1024);
+
+						
+						print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+						}
+						?>
 		</div>
 		
 		<!-- Mainbody KRAJ -->

@@ -9,13 +9,13 @@ function sortuj(){
 		slikeLista.length = listaVijesti.length;
 		var tekstLista = [];
 		tekstLista.length = listaVijesti.length;
-		for(var i=0; i<listaVijesti.length; i++){
+		for(var i=0; i<listaVijesti.length-1; i++){
 		 nasloviLista[i] = listaVijesti[i].children[0];
 		 datumLista[i] = listaVijesti[i].children[1];
 		 slikeLista[i] = listaVijesti[i].children[2];
 		 tekstLista[i] = listaVijesti[i].children[3];
 		}
-	for(var i=0; i<nasloviLista.length;i++) sortirajDjecu(nasloviLista, datumLista, slikeLista, tekstLista);
+	for(var i=0; i<nasloviLista.length-1;i++) sortirajDjecu(nasloviLista, datumLista, slikeLista, tekstLista);
 		for(var i=0; i<nasloviLista.length;i++){
 			document.getElementsByClassName("nowost")[i].replaceChild(nasloviLista[i], document.getElementsByClassName("nowost")[i].children[0]);
 			document.getElementsByClassName("nowost")[i].replaceChild(datumLista[i], document.getElementsByClassName("nowost")[i].children[1]);

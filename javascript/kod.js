@@ -83,6 +83,7 @@ onload = function Datum(){
 		else document.getElementsByClassName(klasa)[i].innerHTML = DatumOutputFull(datoom.getDate(), datoom.getMonth()+1, datoom.getFullYear());
 		
 	}
+	UkloniZadnji();
 }
 
 function DatumOutput(broj, str){
@@ -92,4 +93,10 @@ function DatumOutput(broj, str){
 	
 function DatumOutputFull(dan, mjesec, godina){
 	return " " + dan + "-" + mjesec + "-" + godina + " g"; //ispis cijelog datuma
+}
+
+
+function UkloniZadnji(){
+	var listaVijesti = document.getElementsByClassName("nowost");
+	document.getElementsByClassName("nowost")[listaVijesti.length-1].hidden=true;
 }
