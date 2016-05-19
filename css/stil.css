@@ -111,6 +111,44 @@ body{
 	width:250px;
 }
 
+.nowost {
+	float: left;
+	width: 48%;
+	margin-right:20px;
+}
+
+
+.nowost h3{
+	text-align: center;
+	font-family: Ubuntu;
+}
+
+.nowost p{
+	font-family: Signika;
+	text-align: justify;
+	padding-right: 12px;
+}
+
+
+
+.nowost{
+	border: 1px solid #211919;
+	margin-bottom: 10px;
+	overflow: hidden;
+	height:350px;
+	padding-left: 8px;
+	background-color:#CFE1E1
+}
+
+.nowost img{
+	height:168px;
+	width:250px;
+	float: left;
+	margin: 5px 10px 0px 0px;
+	padding-left: 8px;
+}
+
+
 .objavljeno{
 	
 	font-size: 9px;
@@ -227,6 +265,29 @@ h2{
 	text-align: center;
 	border-radius: 20%;
 	float: right;
+}
+
+#sortiraj input{
+	height: 25px;
+	width: 130px;
+	text-align: center;
+	border-radius: 20%;
+	float: right;
+}
+
+#sortiraj{
+	    font-family: Signika;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    border-radius: 15%;
+    border: 1px solid black;
+    width: 140px;
+    position: relative;
+    box-shadow: 0px 2px 5px black;
+    float: right;
+    right: 45px;
 }
 
 /*Korisni linkovi*/

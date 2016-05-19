@@ -52,7 +52,7 @@
 					</fieldset>
 			</form></div>";
 			if(isset($_SESSION['login'])){
-				print "<div><form id='logout-forma' action='../index.php' method='POST'><input type='submit' name='logout' value='Log out' /></form></div>";
+				print "<div><form id='logout-forma' action='pages/admin.php' method='POST'><input type='submit' name='logout' value='Log out' /></form></div>";
 			
 			}
 			?>
