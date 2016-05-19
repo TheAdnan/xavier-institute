@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../css/logo.css">
 	<script src="../javascript/kod.js"></script>
 	<script src="../javascript/filtriranje.js"></script>
+	<script src="../javascript/sortirajalfabetikalno.js"></script>
 </head>
 
 <!--[if lt IE 9]>
@@ -79,14 +80,14 @@
 		
 		<!-- Mainbody -->
 		<div class="mainbody">
-		 <select id="filter" onchange="sortuj(this.value);">
+		 <select id="filter" onchange="feelter(this.value);">
 			<option value="dan" id="danas">Današnje novosti</option>
 			<option value="sedmica" id="ove-sedmice">Novosti ove sedmice</option>
 			<option value="mjesec" id="ovog-mjeseca">Novosti ovog mjeseca</option>
 			<option value="sve" id="sve" selected="selected">Sve novosti</option>
 		</select> 
 		
-		<input type='submit' name='sortiraj' id='sortiraj' value='Sortiraj po abecedi' />
+		<input type='submit' name='sortiraj' id='sortiraj' onclick='sortuj();' value='Sortiraj po abecedi' />
 				<br>
 				<br>
 				<br>
