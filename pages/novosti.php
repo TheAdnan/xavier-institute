@@ -102,17 +102,20 @@
 						print "<script>Datum();</script>";
 						
 						function sortirajPoDatumu($a, $b) {
-							
-							$datum1 = substr($a, strlen($a)-22, -12);
-							$datum2 = substr($b, strlen($b)-22, -12);
-							$datum3 = substr($a, strlen($a)-11, -2);
-							$datum4 = substr($b, strlen($b)-11, -2);
-							$dat1 = ".$datum1.$datum3.";
-							$dat2 = ".$datum2.$datum4.";
+							$ax = explode(",",$a);
+							$bx = explode(",",$b);
+							// $datum1 = substr($a, strlen($a)-22, -12);
+							// $datum2 = substr($b, strlen($b)-22, -12);
+							// $datum3 = substr($a, strlen($a)-11, -2);
+							// $datum4 = substr($b, strlen($b)-11, -2);
+							$datum1 = $ax[3].$ax[4];
+							$datum2 = $bx[3].$bx[4];
+							// $dat1 = $datum1.$datum3;
+							// $dat2 = $datum2.$datum4;
 							
 						
 							
-							return strtotime($dat1) > strtotime($dat2);
+							return strtotime($datum1) < strtotime($datum2);
 							
 						}
 						
