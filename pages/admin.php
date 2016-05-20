@@ -31,6 +31,7 @@
 			</div>
 			
 			<?php
+			date_default_timezone_set("Europe/Sarajevo");
 			session_start();
 			if(isset($_POST['logout'])){
 				unset($_SESSION['login']);
@@ -70,7 +71,7 @@
 						 $tekst=str_replace(",",";.?",$tekst);
 						 $tekst=str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$tekst);
 						 
-						file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2."\n",FILE_APPEND);
+						file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2.",\n",FILE_APPEND);
 
 						 
 					 }

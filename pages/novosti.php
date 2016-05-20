@@ -33,6 +33,7 @@
 			
 			</div>
 		<?php
+		date_default_timezone_set("Europe/Sarajevo");
 			session_start();
 			if(isset($_POST['logout'])){
 				unset($_SESSION['login']);
@@ -98,19 +99,61 @@
 						
 						
 						<?php
-						$file_handle = fopen("../files/novosti.csv", "r");
-						if(isset($_POST['sortiraj'])){
+						print "<script>Datum();</script>";
 						
+						function sortirajPoDatumu($a, $b) {
+							
+							$datum1 = substr($a, strlen($a)-22, -12);
+							$datum2 = substr($b, strlen($b)-22, -12);
+							$datum3 = substr($a, strlen($a)-11, -2);
+							$datum4 = substr($b, strlen($b)-11, -2);
+							$dat1 = ".$datum1.$datum3.";
+							$dat2 = ".$datum2.$datum4.";
+							
+						
+							
+							return strtotime($dat1) > strtotime($dat2);
+							
+						}
+						
+						function sortirajPoAbecedi($a, $b){
+							return $a[0] > $b[0];
+						}
+						
+						$vijesti = file("../files/novosti.csv");
+						$broj_novosti = count($vijesti);
+						
+						if(isset($_POST['sortiraj'])){
+							usort($vijesti, "sortirajPoAbecedi");
+							$i=0;
+							for($i=0; $i < $broj_novosti; $i++) {
+							$cv =explode(',',$vijesti[$i]);
+							//$cv = fgetcsv($vijesti[$i], 2024);
+							$cv[0]=str_replace(";.?",",",$cv[0]);
+							$cv[2]=str_replace(";.?",",",$cv[2]);
+							
+							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+						}
 						}
 						elseif(isset($_POST['sortirajDate'])){
 							
+							usort($vijesti, "sortirajPoDatumu");
+							
+							for($i=0; $i < $broj_novosti; $i++) {
+								$cv =explode(',',$vijesti[$i]);
+								//$cv = fgetcsv($vijesti[$i], 2024);
+								$cv[0]=str_replace(";.?",",",$cv[0]);
+								$cv[2]=str_replace(";.?",",",$cv[2]);
+							
+								print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+							}
 						}
 						else{
 							
-						
-							while (!feof($file_handle) ) {
-
-							$cv = fgetcsv($file_handle, 2024);
+							$i=0;
+							for($i=0; $i < $broj_novosti; $i++) {
+							$cv =explode(',',$vijesti[$i]);
+							//$cv = fgetcsv($vijesti[$i], 2024);
 							$cv[0]=str_replace(";.?",",",$cv[0]);
 							$cv[2]=str_replace(";.?",",",$cv[2]);
 							
