@@ -38,13 +38,14 @@ function feelter(vr){
 	else if(document.getElementById("ovog-mjeseca").value==vr){
 		for (var j = 0; j < listaVijesti.length; j++){
 			if(listaV[j].style.display == "none"){
-				listaV[j+5].style.removeProperty('display');
+				listaV[j].style.removeProperty('display');
 			}
 		}
 		for (var i = 0; i < listaVijesti.length; i++) {
 			var datumV = listaVijesti[i].getAttribute("datetime");
 			var datum = new Date(datumV);
-			if(sad.getMonth()==datum.getMonth() && sad.getFullYear()==datum.getFullYear() &&(sad.getDate()-datum.getDate())<30)	listaV[i+5].style.display = "show";
+			if(sad.getMonth()==datum.getMonth() && sad.getFullYear()==datum.getFullYear() &&(sad.getDate()-datum.getDate())<30)	
+				listaV[i].style.display = "show";
 			else {
 				listaV[i].style.display = "none";
 				}

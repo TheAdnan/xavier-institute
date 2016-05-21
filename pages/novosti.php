@@ -120,6 +120,8 @@
 						}
 						
 						function sortirajPoAbecedi($a, $b){
+							$a = strtoupper($a);
+							$b = strtoupper($b);
 							return $a[0] > $b[0];
 						}
 						

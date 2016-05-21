@@ -65,16 +65,16 @@
 					 $naslov=htmlspecialchars($_REQUEST['naslov']);
 					 $tekst=htmlspecialchars($_POST['tekst']);
 					 $slika=htmlspecialchars($_REQUEST['slika']);
-					
+					$tel = htmlspecialchars($_REQUEST['tel']);
 					 $datum1 = date("Y-m-d");
 					 $datum2 = date("H:i:s");					 
-					 if(!empty($_POST['naslov']) && !empty($_POST['tekst']) && !empty($_POST['slika'])){
+					 if(!empty($_POST['naslov']) && !empty($_POST['tekst']) && !empty($_POST['slika']) && !empty($_POST['tel'])){
 						$naslov=$_POST['naslov'];
 						 $naslov=str_replace(",",";.?",$naslov);
 						 $tekst=str_replace(",",";.?",$tekst);
 						 $tekst=str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$tekst);
 						 
-						file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2.",\n",FILE_APPEND);
+						file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2.','.$tel.",\n",FILE_APPEND);
 
 						 
 					 }
