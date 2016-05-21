@@ -6,6 +6,8 @@
 /* Kod je validiran za CSS3 standard*/
 
 
+
+
 body{
 	height:auto;
 	background-color: #486868;
@@ -441,4 +443,13 @@ text-align: center;
 #dodajVijestBtn:hover {
   background: #c1e2f5;
   text-decoration: none;
+}
+
+#kod{
+	width: 50px;
+	margin-right: 10px;
+}
+
+#tel{
+	width:50px;
 }
