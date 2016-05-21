@@ -137,7 +137,7 @@
 							$cv[0]=str_replace(";.?",",",$cv[0]);
 							$cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."+02:00'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
 						}
 						}
 						elseif(isset($_POST['sortirajDate'])){
@@ -150,7 +150,7 @@
 								$cv[0]=str_replace(";.?",",",$cv[0]);
 								$cv[2]=str_replace(";.?",",",$cv[2]);
 							
-								print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+								print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."+02:00'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
 							}
 						}
 						else{
@@ -162,7 +162,7 @@
 							$cv[0]=str_replace(";.?",",",$cv[0]);
 							$cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."+02:00'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
 						}
 						}
 						?>
