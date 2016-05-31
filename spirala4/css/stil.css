@@ -1,0 +1,457 @@
+
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Signika:400,300,600,700&subset=latin,latin-ext);
+
+/*				Attentione			*/
+/* Kod je validiran za CSS3 standard*/
+
+
+
+
+body{
+	height:auto;
+	background-color: #486868;
+
+}
+
+.tijelo{
+		overflow:auto;
+		width: 80%;
+		margin:0 auto;
+		padding-top: 120px;
+		background-color: #486868;
+}
+
+
+	
+.zaglavlje{
+	font-family: Ubuntu;
+	margin-bottom: 30px;
+	
+}
+
+.meni{
+	text-align: center;
+	box-shadow: 0px 4px 2px #000;
+	
+}
+.meni li{
+	display: inline;
+	float: left;
+}
+
+
+.meni ul {
+	display:inline-block;
+	margin-bottom: -4px;
+}
+
+
+.meni a {
+	color: white;
+	padding: 0 37px 0 35px;
+    border-bottom-style: solid;
+    border-radius: 10%;
+}
+
+
+.meni a:link {
+    text-decoration: none;
+}
+
+.meni a:visited {
+    text-decoration: none;
+}
+
+.meni a:hover {
+    text-decoration: none;
+}
+
+.meni a:active {
+    text-decoration: none;
+}
+
+
+#vijestiLeft, #vijestiRight
+{
+	float: left;
+	width: 48%;
+}
+
+#vijestiLeft ul li img, #vijestiRight ul li img{
+	float: left;
+	margin: 5px 10px 0px 0px;
+	padding-left: 8px;
+}
+
+#vijestiLeft ul li h3, #vijestiRight ul li h3{
+	text-align: center;
+	font-family: Ubuntu;
+}
+
+#vijestiLeft ul li p, #vijestiRight ul li p{
+	font-family: Signika;
+	text-align: justify;
+	padding-right: 12px;
+}
+
+#vijestiLeft ul, #vijestiRight ul{
+	list-style-type: none;
+}
+
+#vijestiLeft ul li, #vijestiRight ul li{
+	border: 1px solid #211919;
+	margin-bottom: 10px;
+	overflow: hidden;
+	height:350px;
+	padding-left: 8px;
+	background-color:#CFE1E1
+}
+
+#vijestiLeft img, #vijestiRight img{
+	height:168px;
+	width:250px;
+}
+
+.nowost {
+	float: left;
+	width: 48%;
+	margin-right:20px;
+}
+
+
+.nowost h3{
+	text-align: center;
+	font-family: Ubuntu;
+}
+
+.nowost p{
+	font-family: Signika;
+	text-align: justify;
+	padding-right: 12px;
+}
+
+
+
+.nowost{
+	border: 1px solid #211919;
+	margin-bottom: 10px;
+	overflow: hidden;
+	height:350px;
+	padding-left: 8px;
+	background-color:#CFE1E1
+}
+
+.nowost img{
+	height:168px;
+	width:250px;
+	float: left;
+	margin: 5px 10px 0px 0px;
+	padding-left: 8px;
+}
+
+
+.objavljeno{
+	
+	font-size: 9px;
+	color: gray;
+	
+}
+
+.objavljeno p{
+	text-align:right;
+	font-family:Ubuntu;
+}
+
+.tijelo{
+	clear:both;
+}
+
+
+*{
+	box-sizing: border-box;
+}
+
+
+
+
+/*Kontakt*/
+
+#kontakt-forma{
+	font-family: Signika;
+	font-size: 24px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+    border-radius:15%;
+    border: 1px solid black;
+    background-color: #486a95;
+    width: 300px;
+    position:relative;
+    left:35%;
+    box-shadow: 0px 2px 5px black;
+    padding-bottom: 5px;
+}
+
+#kontakt-forma input{
+	height: 30px;
+	width: 200px;
+	text-align: center;
+	border-radius:20%;
+}
+
+#posalji button{
+	height: 35px;
+	width: 110px;
+	margin-top: 20px;
+	font-family: Signika;
+}
+
+h2{
+	text-align:center;
+	font-size:70px;
+	color: white;
+	font-family:Signika;
+}
+
+#login-forma{
+	font-family: Signika;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 34px;
+	border-radius: 15%;
+	border: 1px solid black;
+	width: 236px;
+	position: relative;
+	box-shadow: 0px 2px 5px black;
+	padding-bottom: 2px;
+	float: right;
+	margin-top:-95px;
+}
+
+#login-forma fieldset{
+	border:0;
+}
+
+#login-forma input{
+	height: 25px;
+	width: 130px;
+	text-align: center;
+	border-radius: 20%;
+	float: right;
+}
+
+#logout-forma{
+	font-family: Signika;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 34px;
+	border-radius: 15%;
+	border: 1px solid black;
+	width: 136px;
+	position: relative;
+	box-shadow: 0px 2px 5px black;
+	padding-bottom: 2px;
+	float: right;
+	margin-top:-95px;
+}
+
+#logout-forma fieldset{
+	border:0;
+}
+#logout-forma input{
+	height: 25px;
+	width: 130px;
+	text-align: center;
+	border-radius: 20%;
+	float: right;
+}
+
+.sortiraj input{
+	height: 25px;
+	width: 130px;
+	text-align: center;
+	border-radius: 20%;
+	float: right;
+}
+
+.sortiraj{
+	    font-family: Signika;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    border-radius: 15%;
+    border: 1px solid black;
+    width: 140px;
+    position: relative;
+    box-shadow: 0px 2px 5px black;
+    float: right;
+    right: 45px;
+	margin-left:10px;
+}
+
+/*Korisni linkovi*/
+
+#linkovi{
+	font-family:Signika;
+	font-size: 30px;
+	width: 75%;
+}
+
+#linkovi ul li{
+	list-style-image:url('../images/ikonica.png');
+	margin-left: 20px;
+	border-bottom: 1px solid black;
+}
+
+#linkovi ul li:hover{
+	list-style-image:url('../images/ikonica-hover.png');
+	margin-left: 20px;
+}
+
+#linkovi ul li a{
+	color:black;
+}
+
+#linkovi ul li a:link {
+    text-decoration: none;
+}
+
+
+#linkovi ul li a:visited {
+    text-decoration: none;
+}
+
+
+#linkovi ul li a:hover {
+    text-decoration: none;
+}
+
+
+#linkovi ul li a:active {
+    text-decoration: none;
+}
+
+/* O nama */
+#intro{
+	font-family: Signika;
+	font-size:20px;
+	color: #cfcfcf;
+}
+
+#tejbl{
+	width: 100%;
+	font-size:19px;
+	font-family:Signika;
+	border-collapse: collapse;
+}
+
+#tejbl table, #tejbl th, #tejbl td, #tejbl tr{
+	border: 1px solid black;
+}
+
+#tejbl td{
+	text-align:center;
+}
+
+#naslovi{
+	background-color:#cfcfcf;
+}
+
+.parni{
+	background-color:#55a455;
+}
+
+.neparni{
+	background-color:#486a95;
+}
+
+
+
+#vmutacije{
+	font-size: 10px;
+	color: #171717;
+	margin-left: auto;
+	margin-right:auto;
+	margin-top:-40px;
+}
+
+#vmutacije td{
+	padding-left:20px
+}
+
+#gradSelect, #drzavaSelect{
+	background-color:#486868;
+	font-family:Ubuntu;
+	width:70%;
+}
+
+
+#loginDiv{
+	width: 20%;
+float: right;
+margin-top: -135px;
+}
+
+#login{
+	color: white;
+text-align: center;
+}
+
+#dodaj-novost{
+	font-family: Signika;
+	font-size: 24px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+    border-radius:15%;
+    border: 1px solid black;
+    background-color: #486a95;
+    width: 500px;
+    position:relative;
+    left:35%;
+    box-shadow: 0px 2px 5px black;
+    padding-bottom: 5px;
+	padding-right: 5px
+}
+
+#dodaj-novost fieldset{
+	border:0;
+}
+#tekstvijesti{
+
+    height: 300px;
+    width: 300px;
+
+}
+
+#dodajVijestBtn {
+	font-family:Signika;
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  color: #000;
+  font-size: 18px;
+  background: #a7d4f2;
+  padding: 10px 20px 10px 20px;
+  border: solid #3a7da6 2px;
+  text-decoration: none;
+}
+
+#dodajVijestBtn:hover {
+  background: #c1e2f5;
+  text-decoration: none;
+}
+
+#kod{
+	width: 50px;
+	margin-right: 10px;
+}
+
+#tel{
+	
+	width: 170px;
+}
