@@ -124,9 +124,11 @@
 							$b = strtoupper($b);
 							return $a['naslov'] > $b['naslov'];
 						}
+						
+						if(!isset($_GET['vijest'])){
 						$veza = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
 						$veza->exec("set names utf8");
-						$cv1 = $veza->query("select naslov, slika, tekst, datum from vijest");
+						$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest");
 						// $vijesti = file("../files/novosti.csv");
 						// $broj_novosti = count($vijesti);
 						$upit2 = $veza->query("select count(*) as broj from vijest;");
@@ -134,27 +136,27 @@
 						
 						if(isset($_POST['sortiraj'])){
 							//usort($cv1, "sortirajPoAbecedi");
-							$cv1 = $veza->query("select naslov, slika, tekst, datum from vijest ORDER BY naslov ASC");
+							$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest ORDER BY naslov ASC");
 							foreach($cv1 as $cv) {
 							// $cv =explode(',',$vijesti[$i]);
 							// //$cv = fgetcsv($vijesti[$i], 2024);
 							// $cv[0]=str_replace(";.?",",",$cv[0]);
 							// $cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
+							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'"."'><small>Detaljno...</small></a></div>";
 						}
 						}
 						elseif(isset($_POST['sortirajDate'])){
 							
 							//usort($cv1, "sortirajPoDatumu");
-							$cv1 = $veza->query("select naslov, slika, tekst, datum from vijest ORDER BY datum DESC");
+							$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest ORDER BY datum DESC");
 							foreach($cv1 as $cv) {
 								// $cv =explode(',',$vijesti[$i]);
 								// //$cv = fgetcsv($vijesti[$i], 2024);
 								// $cv[0]=str_replace(";.?",",",$cv[0]);
 								// $cv[2]=str_replace(";.?",",",$cv[2]);
 							
-								print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
+								print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'"."'><small>Detaljno...</small></a></div>";
 							}
 						}
 						else{
@@ -166,9 +168,20 @@
 							// $cv[0]=str_replace(";.?",",",$cv[0]);
 							// $cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
+							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest='".(string)$cv['id']."'"."'><small>Detaljno...</small></a></div>";
 						}
-						}
+					}
+				}
+				elseif(isset($_GET['vijest'])){
+					$var = (string)$_GET['vijest'];
+					
+					$v = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
+							$v->exec("set names utf8");
+					$cv1 = $v->query("SELECT naslov, slika, tekst, datum FROM vijest WHERE id='".$var."'");
+					foreach($cv1 as $cv){
+					print "<div class='nowostDetaljno'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
+					}
+				}
 						?>
 		</div>
 		
