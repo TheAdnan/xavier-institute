@@ -69,9 +69,9 @@
 					 $datum1 = date("Y-m-d");
 					 $datum2 = date("H:i:s");	
 					$datum = $datum1."T".$datum2;
+					$komentar = '0';
+					if(isset($_POST['imaKomentare'])) $komentar = "1";
 					
-					if(isset($_GET['imaKomentare'])) $komentar = "1";
-					else $komentar = "0";
 					 if(!empty($_POST['naslov']) && !empty($_POST['tekst']) && !empty($_POST['slika']) && !empty($_POST['tel'])){
 						$naslov=$_POST['naslov'];
 						 // $naslov=str_replace(",",";.?",$naslov);

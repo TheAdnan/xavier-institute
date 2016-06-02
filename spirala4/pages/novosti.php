@@ -102,67 +102,71 @@
 						print "<script>Datum();</script>";
 						
 						function sortirajPoDatumu($a, $b) {
-							$ax = explode(",",$a);
-							$bx = explode(",",$b);
-							// $datum1 = substr($a, strlen($a)-22, -12);
-							// $datum2 = substr($b, strlen($b)-22, -12);
-							// $datum3 = substr($a, strlen($a)-11, -2);
-							// $datum4 = substr($b, strlen($b)-11, -2);
-							$datum1 = $ax[3].$ax[4];
-							$datum2 = $bx[3].$bx[4];
-							// $dat1 = $datum1.$datum3;
-							// $dat2 = $datum2.$datum4;
+							// $ax = explode(",",$a);
+							// $bx = explode(",",$b);
+							// // $datum1 = substr($a, strlen($a)-22, -12);
+							// // $datum2 = substr($b, strlen($b)-22, -12);
+							// // $datum3 = substr($a, strlen($a)-11, -2);
+							// // $datum4 = substr($b, strlen($b)-11, -2);
+							// $datum1 = $ax[3].$ax[4];
+							// $datum2 = $bx[3].$bx[4];
+							// // $dat1 = $datum1.$datum3;
+							// // $dat2 = $datum2.$datum4;
 							
 						
 							
-							return strtotime($datum1) < strtotime($datum2);
+							return strtotime($a['datum']) < strtotime($b['datum']);
 							
 						}
 						
 						function sortirajPoAbecedi($a, $b){
 							$a = strtoupper($a);
 							$b = strtoupper($b);
-							return $a[0] > $b[0];
+							return $a['naslov'] > $b['naslov'];
 						}
-						
-						$vijesti = file("../files/novosti.csv");
-						$broj_novosti = count($vijesti);
+						$veza = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
+						$veza->exec("set names utf8");
+						$cv1 = $veza->query("select naslov, slika, tekst, datum from vijest");
+						// $vijesti = file("../files/novosti.csv");
+						// $broj_novosti = count($vijesti);
+						$upit2 = $veza->query("select count(*) as broj from vijest;");
+						$broj_novosti = $upit2->fetch(PDO::FETCH_ASSOC);
 						
 						if(isset($_POST['sortiraj'])){
-							usort($vijesti, "sortirajPoAbecedi");
-							$i=0;
-							for($i=0; $i < $broj_novosti; $i++) {
-							$cv =explode(',',$vijesti[$i]);
-							//$cv = fgetcsv($vijesti[$i], 2024);
-							$cv[0]=str_replace(";.?",",",$cv[0]);
-							$cv[2]=str_replace(";.?",",",$cv[2]);
+							//usort($cv1, "sortirajPoAbecedi");
+							$cv1 = $veza->query("select naslov, slika, tekst, datum from vijest ORDER BY naslov ASC");
+							foreach($cv1 as $cv) {
+							// $cv =explode(',',$vijesti[$i]);
+							// //$cv = fgetcsv($vijesti[$i], 2024);
+							// $cv[0]=str_replace(";.?",",",$cv[0]);
+							// $cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."+02:00'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
 						}
 						}
 						elseif(isset($_POST['sortirajDate'])){
 							
-							usort($vijesti, "sortirajPoDatumu");
+							//usort($cv1, "sortirajPoDatumu");
+							$cv1 = $veza->query("select naslov, slika, tekst, datum from vijest ORDER BY datum DESC");
+							foreach($cv1 as $cv) {
+								// $cv =explode(',',$vijesti[$i]);
+								// //$cv = fgetcsv($vijesti[$i], 2024);
+								// $cv[0]=str_replace(";.?",",",$cv[0]);
+								// $cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							for($i=0; $i < $broj_novosti; $i++) {
-								$cv =explode(',',$vijesti[$i]);
-								//$cv = fgetcsv($vijesti[$i], 2024);
-								$cv[0]=str_replace(";.?",",",$cv[0]);
-								$cv[2]=str_replace(";.?",",",$cv[2]);
-							
-								print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."+02:00'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+								print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
 							}
 						}
 						else{
 							
-							$i=0;
-							for($i=0; $i < $broj_novosti; $i++) {
-							$cv =explode(',',$vijesti[$i]);
-							//$cv = fgetcsv($vijesti[$i], 2024);
-							$cv[0]=str_replace(";.?",",",$cv[0]);
-							$cv[2]=str_replace(";.?",",",$cv[2]);
 							
-							print "<div class='nowost'><h3>".$cv[0]."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv[3]."T".$cv[4]."+02:00'></time>.</p><img src='".$cv[1]."' alt='".$cv[1]."'><p>".$cv[2]."</p></div>";
+							foreach($cv1 as $cv) {
+							// $cv =explode(',',$vijesti[$i]);
+							// //$cv = fgetcsv($vijesti[$i], 2024);
+							// $cv[0]=str_replace(";.?",",",$cv[0]);
+							// $cv[2]=str_replace(";.?",",",$cv[2]);
+							
+							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
 						}
 						}
 						?>
