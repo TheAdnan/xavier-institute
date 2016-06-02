@@ -67,14 +67,32 @@
 					 $slika=htmlspecialchars($_REQUEST['slika']);
 					$tel = htmlspecialchars($_REQUEST['tel']);
 					 $datum1 = date("Y-m-d");
-					 $datum2 = date("H:i:s");					 
+					 $datum2 = date("H:i:s");	
+					$datum = $datum1."T".$datum2;
+					
+					if(isset($_GET['imaKomentare'])) $komentar = "1";
+					else $komentar = "0";
 					 if(!empty($_POST['naslov']) && !empty($_POST['tekst']) && !empty($_POST['slika']) && !empty($_POST['tel'])){
 						$naslov=$_POST['naslov'];
-						 $naslov=str_replace(",",";.?",$naslov);
-						 $tekst=str_replace(",",";.?",$tekst);
-						 $tekst=str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$tekst);
+						 // $naslov=str_replace(",",";.?",$naslov);
+						 // $tekst=str_replace(",",";.?",$tekst);
+						 // $tekst=str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$tekst);
 						 
-						file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2.','.$tel.",\n",FILE_APPEND);
+						// file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2.','.$tel.",\n",FILE_APPEND);
+						$veza = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
+						$veza->exec("set names utf8");
+					     $idAdmina = $veza->query("select id from korisnik where username = '".(string)$_SESSION['username']."';");
+						$ajdi = $idAdmina->fetch(PDO::FETCH_ASSOC);
+						 $unosVijesti = $veza->query("INSERT INTO vijest SET naslov = '".(string)$naslov."', tekst = '".(string)$tekst."', slika = '".(string)$slika."', datum = '".(string)$datum."', komentar = '".(string)$komentar."';");
+						
+						
+						 if(!$unosVijesti){
+							echo 'oh noooo';
+							echo $veza->errorInfo()[2];
+							}
+						 $idAdmina = null;
+						 $unosVijesti = null;
+						 $veza=null;
 
 						 
 					 }
@@ -110,35 +128,7 @@
 		</div>
 		<?php
 			
-			$greska = '';
-			$tojeto = false;
-
-			if (isset($_POST['posalji']) && !empty($_POST['username']) && !empty($_POST['password'])) 
-			{
-				$user = $_POST['username'];
-				$pass = $_POST['password'];
-				
-				$login=file('../files/login.txt');
-
-				foreach($login as $korisnik) {
-					$podaci=explode(',',$korisnik);
-					if($podaci[0] == $user && $podaci[1]==md5($pass)) {
-						$_SESSION['login'] = true;
-						$greska="";
-						$tojeto = true;
-						break;
-					}
-				}
-				if(! $tojeto) {	
-					$greska = 'Pogrešan username ili password';
-					echo '<script>alert("'.$greska.'");</script>';
-				}
-			}
-
-			if($tojeto) {
-				header("Location: admin.php");
-			}
-			
+			require_once('login.php');
 			
 			?>	
 		
@@ -160,6 +150,9 @@
 				<br>
 				<label><small>Kod države</small></label><input type='text' name='kod' id='kod' oninput='ValidirajKod();'/><label><small>Broj telefona</small></label><input type='text' name='tel' id='tel' oninput='ValidirajBrojTelefona();'/>
 				<br>
+				<label><small>Omogući komentare?</small></label>
+				<br>
+				<input type="checkbox" name="imaKomentare" value="Da">Da<br>
 				<input type='submit' id='dodajVijestBtn' name='vijes'  value="Dodaj vijest"/>
 				</form>
 				
