@@ -8,12 +8,6 @@
 	<script src="../javascript/kod.js"></script>
 	<script src="../javascript/validacija.js"></script>
 </head>
-
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
-</script>
-<![endif]-->
-		
 	<BODY>
 	
 	<div class="tijelo">
@@ -74,11 +68,6 @@
 					
 					 if(!empty($_POST['naslov']) && !empty($_POST['tekst']) && !empty($_POST['slika']) && !empty($_POST['tel'])){
 						$naslov=$_POST['naslov'];
-						 // $naslov=str_replace(",",";.?",$naslov);
-						 // $tekst=str_replace(",",";.?",$tekst);
-						 // $tekst=str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$tekst);
-						 
-						// file_put_contents("../files/novosti.csv",$naslov.','.$slika.','.$tekst.','.$datum1.','.$datum2.','.$tel.",\n",FILE_APPEND);
 						$veza = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
 						$veza->exec("set names utf8");
 					     $idAdmina = $veza->query("select id from korisnik where username = '".(string)$_SESSION['username']."';");
@@ -87,7 +76,7 @@
 						
 						
 						 if(!$unosVijesti){
-							echo 'oh noooo';
+							echo 'greska';
 							echo $veza->errorInfo()[2];
 							}
 						 $idAdmina = null;
@@ -101,7 +90,7 @@
 					}
 					
 						
-					// print "<h3>".$naslov."</h3><p class='objavljeno'>objavljeno<time class='vrijemeObjave' datetime='".$datum1."T".$datum2."'></time>.</p><p>".$tekst."</p>";
+					
 					}
 					
 

@@ -101,22 +101,8 @@
 						<?php
 						print "<script>Datum();</script>";
 						
-						function sortirajPoDatumu($a, $b) {
-							// $ax = explode(",",$a);
-							// $bx = explode(",",$b);
-							// // $datum1 = substr($a, strlen($a)-22, -12);
-							// // $datum2 = substr($b, strlen($b)-22, -12);
-							// // $datum3 = substr($a, strlen($a)-11, -2);
-							// // $datum4 = substr($b, strlen($b)-11, -2);
-							// $datum1 = $ax[3].$ax[4];
-							// $datum2 = $bx[3].$bx[4];
-							// // $dat1 = $datum1.$datum3;
-							// // $dat2 = $datum2.$datum4;
-							
-						
-							
+						function sortirajPoDatumu($a, $b) {	
 							return strtotime($a['datum']) < strtotime($b['datum']);
-							
 						}
 						
 						function sortirajPoAbecedi($a, $b){
@@ -126,63 +112,78 @@
 						}
 						
 						if(!isset($_GET['vijest'])){
-						$veza = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
-						$veza->exec("set names utf8");
-						$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest");
-						// $vijesti = file("../files/novosti.csv");
-						// $broj_novosti = count($vijesti);
-						$upit2 = $veza->query("select count(*) as broj from vijest;");
-						$broj_novosti = $upit2->fetch(PDO::FETCH_ASSOC);
+							$veza = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
+							$veza->exec("set names utf8");
+							$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest");
+							$upit2 = $veza->query("select count(*) as broj from vijest;");
+							$broj_novosti = $upit2->fetch(PDO::FETCH_ASSOC);
 						
 						if(isset($_POST['sortiraj'])){
-							//usort($cv1, "sortirajPoAbecedi");
 							$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest ORDER BY naslov ASC");
 							foreach($cv1 as $cv) {
-							// $cv =explode(',',$vijesti[$i]);
-							// //$cv = fgetcsv($vijesti[$i], 2024);
-							// $cv[0]=str_replace(";.?",",",$cv[0]);
-							// $cv[2]=str_replace(";.?",",",$cv[2]);
-							
-							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'"."'><small>Detaljno...</small></a></div>";
-						}
+								print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'><small>Detaljno...</small></a></div>";
+							}
 						}
 						elseif(isset($_POST['sortirajDate'])){
-							
-							//usort($cv1, "sortirajPoDatumu");
+
 							$cv1 = $veza->query("select id, naslov, slika, tekst, datum from vijest ORDER BY datum DESC");
 							foreach($cv1 as $cv) {
-								// $cv =explode(',',$vijesti[$i]);
-								// //$cv = fgetcsv($vijesti[$i], 2024);
-								// $cv[0]=str_replace(";.?",",",$cv[0]);
-								// $cv[2]=str_replace(";.?",",",$cv[2]);
-							
-								print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'"."'><small>Detaljno...</small></a></div>";
+								print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'><small>Detaljno...</small></a></div>";
 							}
 						}
 						else{
 							
 							
 							foreach($cv1 as $cv) {
-							// $cv =explode(',',$vijesti[$i]);
-							// //$cv = fgetcsv($vijesti[$i], 2024);
-							// $cv[0]=str_replace(";.?",",",$cv[0]);
-							// $cv[2]=str_replace(";.?",",",$cv[2]);
-							
-							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest='".(string)$cv['id']."'"."'><small>Detaljno...</small></a></div>";
+							print "<div class='nowost'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p><a href='novosti.php?vijest=".(string)$cv['id']."'><small>Detaljno...</small></a></div>";
 						}
 					}
 				}
 				elseif(isset($_GET['vijest'])){
-					$var = (string)$_GET['vijest'];
-					
-					$v = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
-							$v->exec("set names utf8");
-					$cv1 = $v->query("SELECT naslov, slika, tekst, datum FROM vijest WHERE id='".$var."'");
-					foreach($cv1 as $cv){
-					print "<div class='nowostDetaljno'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
+						$var = (string)$_GET['vijest'];
+						
+						$v = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
+								$v->exec("set names utf8");
+						$cv1 = $v->query("SELECT naslov, slika, tekst, datum FROM vijest WHERE id='".$var."'");
+								foreach($cv1 as $cv){
+									print "<div class='nowostDetaljno'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
+									
+								}
+						
+						$temp='1';
+							$imalKomentara = $v->query("SELECT komentar FROM vijest WHERE id='".$var."'");
+							foreach($imalKomentara as $cv){
+								$temp = $cv['komentar'];
+							}
+							if($temp == '1'){
+								//prikaz forme za unos
+								
+								print "	<form id='dodaj-komentar' action='novosti.php?vijest=".$var."' method='POST'> 
+											<textarea name='comment' id='comment' placeholder='Napiši komentar'></textarea>
+											<input type='submit' id='dodajKomentarBtn' name='dodajKomentarBtn'  value='Postavi'/>
+											</form>
+									";
+								print "<div id='komentari'>";
+							//prikaz komentara
+								$cv2 = $v->query("SELECT tekst FROM komentar WHERE vijest='".$var."'");
+									foreach($cv2 as $cv){
+										print "<div class='komentarParent'><p>".$cv['tekst']."</p></div>";
+								}
+								
+								//ako je pritisnut button dodajKomentarBtn
+								if(isset($_POST['dodajKomentarBtn']) && !empty($_POST['comment'])){
+									$kom = $_POST['comment'];
+									
+									$cv3 = $v->query("INSERT INTO komentar SET tekst = '".(string)$kom."', odgovor = '0', vijest = '".(string)$var."';");
+									
+								}
+								
+								print "</div>";
+							}
+							
 					}
-				}
-						?>
+				
+			?>
 		</div>
 		
 		<!-- Mainbody KRAJ -->

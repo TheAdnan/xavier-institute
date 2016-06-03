@@ -493,3 +493,33 @@ text-align: center;
 	
 	width: 170px;
 }
+
+
+/*spirala 4*/
+#comment{
+    width: 50%;
+    height: 100px;
+}
+
+#dodaj-komentar{
+	text-align:center;
+}
+
+#dodajKomentarBtn {
+	font-family:Signika;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  color: #000;
+  font-size: 18px;
+  background: #a7d4f2;
+  padding: 10px 20px 10px 20px;
+  border: solid #3a7da6 2px;
+  text-decoration: none;
+  position:absolute;
+}
+
+#dodajKomentarBtn:hover {
+  background: #c1e2f5;
+  text-decoration: none;
+}
+
