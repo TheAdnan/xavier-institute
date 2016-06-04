@@ -30,7 +30,11 @@ function validirajUnose(){
 		slikaE.style.removeProperty('background-color');
 		validno=true;
 	}
+	if(!document.getElementById("kod").value.match(/\S/) || !document.getElementById("tel").valuematch(/\S/)) validno = false;
+	
 	return validno;
+	
+	
 		
 }
 
@@ -52,7 +56,7 @@ function ValidirajKod(){
 			document.getElementById("kod").innerHTML = "Ne postoji kod";
 	}
 	ajax.open("GET", "https://restcountries.eu/rest/v1/alpha?codes="+kod, true);
-	ajax.send();	
+	ajax.send();
 }
 
 function ValidirajBrojTelefona(){

@@ -523,3 +523,11 @@ text-align: center;
   text-decoration: none;
 }
 
+.komentarParent{
+	background: #a7d4f2;
+	width: 40%;
+	float: none;
+	margin: 0 auto;
+	text-align:center;
+}
+

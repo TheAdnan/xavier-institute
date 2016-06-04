@@ -141,13 +141,13 @@
 				}
 				elseif(isset($_GET['vijest'])){
 						$var = (string)$_GET['vijest'];
-						
+						$avtor = 0;
 						$v = new PDO("mysql:dbname=xavier;host=localhost;charset=utf8", "root", "");
 								$v->exec("set names utf8");
-						$cv1 = $v->query("SELECT naslov, slika, tekst, datum FROM vijest WHERE id='".$var."'");
+						$cv1 = $v->query("SELECT naslov, slika, tekst, datum, autor FROM vijest WHERE id='".$var."'");
 								foreach($cv1 as $cv){
 									print "<div class='nowostDetaljno'><h3>".$cv['naslov']."</h3><p class='objavljeno'>Objavljeno<time class='vrijemeObjave' datetime='".$cv['datum']."+02:00'></time>.</p><img src='".$cv['slika']."' alt='".$cv['slika']."'><p>".$cv['tekst']."</p></div>";
-									
+									$avtor = $cv['autor'];
 								}
 						
 						$temp='1';
@@ -163,11 +163,16 @@
 											<input type='submit' id='dodajKomentarBtn' name='dodajKomentarBtn'  value='Postavi'/>
 											</form>
 									";
-								print "<div id='komentari'>";
+								print "<div id='komentari'><h3>Komentari:</h3>";
 							//prikaz komentara
-								$cv2 = $v->query("SELECT tekst FROM komentar WHERE vijest='".$var."'");
+								$cv2 = $v->query("SELECT tekst FROM komentar WHERE vijest='".(string)$var."'");
+								
 									foreach($cv2 as $cv){
-										print "<div class='komentarParent'><p>".$cv['tekst']."</p></div>";
+										$cx = $v->query("SELECT ime FROM korisnik WHERE id='".(string)$avtor."'");
+										foreach($cx as $c){
+											print "<div class='komentarParent'><p><b>".$c['ime']." wrote: </b>".$cv['tekst']."</p></div>";
+										}
+										
 								}
 								
 								//ako je pritisnut button dodajKomentarBtn
@@ -180,6 +185,9 @@
 								
 								print "</div>";
 							}
+							else print "	<div class='komentarParent'><p>Komentari za ovu vijest su onemogućeni!</p>
+											</div>
+									";
 							
 					}
 				
