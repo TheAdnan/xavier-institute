@@ -6,6 +6,10 @@
 	<link rel="stylesheet" href="css/stil.css">
 	<link rel="stylesheet" href="css/logo.css">
 	<script src="javascript/kod.js"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 </head>
 
 <!--[if lt IE 9]>
@@ -95,6 +99,12 @@
 							<img src="images/vijest2.jpg" alt="Apocalypse">
 							<p>Ako ste gledajući X-Men: Days of Future Past odsjedili iza završnice, imali ste priliku vidjeti kraći teaser za idući nastavak koji nosi naziv X-Men: Apocalypse. Špekulacije su od tada potvrđene pa znamo da će se X-Men ekipa u novom filmu boriti protiv Apocalypsea i njegova četiri jahača...</p>
 						</li>
+						<li>
+							<h3>Prvi X-Men Apocalypse trailer</h3>
+							<p class="objavljeno">Objavljeno<time class="vrijemeObjave" datetime="2016-03-10T23:45:00"></time>.</p>
+							<img src="images/vijest2.jpg" alt="Apocalypse">
+							<p>Ako ste gledajući X-Men: Days of Future Past odsjedili iza završnice, imali ste priliku vidjeti kraći teaser za idući nastavak koji nosi naziv X-Men: Apocalypse. Špekulacije su od tada potvrđene pa znamo da će se X-Men ekipa u novom filmu boriti protiv Apocalypsea i njegova četiri jahača...</p>
+						</li>
 					</ul>
 				</div>
 				<div id="vijestiRight">
@@ -111,6 +121,12 @@
 							<img src="images/vijest4.jpg" alt="Charles Xavier">
 							<p>Charles Francis Xavier rođen je u New Yorku, oca Brian Xavier i majke, cijenjene naučnice u oblasti nuklearne fizike, Sharon Xavier. Nakon što je izgubio oca u saobraćajnoj nesreći, njegov prijatelj Kurt Marko stupa u brak s Sharon...</p>
 						</li>
+						<li>
+							<h3>Biografija: Profesor Charles Francis Xavier</h3>
+							<p class="objavljeno">Objavljeno<time class="vrijemeObjave" datetime="2016-03-27T13:04:20"></time>.</p>
+							<img src="images/vijest4.jpg" alt="Charles Xavier">
+							<p>Charles Francis Xavier rođen je u New Yorku, oca Brian Xavier i majke, cijenjene naučnice u oblasti nuklearne fizike, Sharon Xavier. Nakon što je izgubio oca u saobraćajnoj nesreći, njegov prijatelj Kurt Marko stupa u brak s Sharon...</p>
+						</li>
 					</ul>
 				</div>
 		</div>
@@ -120,3 +136,9 @@
 		</div>
 	</BODY>
 </html>
+
+<script>
+	$(".objavljeno").on('click', function(){
+		$(this).parent().remove();
+	});
+</script>
